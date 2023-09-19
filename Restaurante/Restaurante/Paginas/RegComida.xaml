@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Restaurante.Paginas.RegComida">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="White">
+                <Label Text="Detalle de la comida" 
+                       TextColor="Black" 
+                       FontSize="34"
+                       Margin="0,25,0,0" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="CenterAndExpand" 
+                       VerticalOptions="CenterAndExpand" />
+
+                <Frame BackgroundColor="SkyBlue"
+                       CornerRadius="10" 
+                       Padding="20"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <StackLayout Padding="15">
+                            <Label Text="Categoría " TextColor="Black" FontSize="Large" FontAttributes="Bold" />
+                            <Entry x:Name="txtCategoria" TextColor="Black" Text="{Binding Nombre}" 
+                                   Placeholder="Ingresa la categoria a la que pertence (Bebidas, Almuerzo, Postre):" 
+                                   PlaceholderColor="LightGray" BackgroundColor="#D3D3D3" FontSize="Medium"/>
+                        </StackLayout>
+
+                        <StackLayout Padding="15">
+                            <Label Text="Comida: " TextColor="Black" FontSize="Large" FontAttributes="Bold" />
+                            <Entry x:Name="txtComida" TextColor="Black" Text="{Binding Apellidos}" 
+                                   Placeholder="Ingresa nombre de la comida" 
+                                   PlaceholderColor="LightGray" BackgroundColor="#D3D3D3" FontSize="Medium"/>
+                        </StackLayout>
+
+                        <StackLayout Padding="15">
+                            <Label Text="Descripción: " TextColor="Black" FontSize="Large" FontAttributes="Bold" />
+                            <Entry x:Name="txtDesc" TextColor="Black" Text="{Binding Dni}"
+                                   Placeholder="Ingresa una breve descripción"
+                                   PlaceholderColor="LightGray" BackgroundColor="#D3D3D3" FontSize="Medium"/>
+                        </StackLayout>
+
+                        <StackLayout Padding="15">
+                            <Label Text="Precio: " TextColor="Black" FontSize="Large" FontAttributes="Bold" />
+                            <Entry x:Name="txtPrecio" TextColor="Black" Text="{Binding phone}"
+                                   Placeholder="Ingrese el precio"
+                                   PlaceholderColor="LightGray" BackgroundColor="#D3D3D3" FontSize="Medium"/>
+                        </StackLayout>
+
+                        <Picker x:Name="cmbMenu" Title="Seleccionar menú">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Desayuno</x:String>
+                                    <x:String>Almuerzo</x:String>
+                                    <x:String>Cena</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <ActivityIndicator x:Name="indicator" Color="Green" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnRegistrar" Text="Registrar" Order="Primary" Priority="0" Clicked="btnRegistrar_Clicked"/>
+        <ToolbarItem x:Name="btnEliminar" Text="Eliminar" Order="Primary" Priority="1" Clicked="btnEliminar_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>
